@@ -14,6 +14,7 @@ import Input from '../../components/Input';
 import Buttom from '../../components/Button';
 
 import { Container, Content, AnimationContainer, Background } from './styles';
+import api from '../../services/api';
 
 interface ForgotPasswordFormData {
     email: string;
@@ -40,6 +41,15 @@ const ForgotPassword: React.FC = () => {
             });
 
             // recuperação de senha
+            await api.post('/password/forgot', {
+                email: data.email
+            });
+
+            addToast({
+                type: 'success',
+                title: 'E-mail de recuperação enviado.',
+                description: 'Enviamos um e-mail para confirmar a recuperação de senha, cheque sua caixa de entrada'
+            })
 
             // history.push('/dashboard');
         } catch (err) {
