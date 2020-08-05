@@ -28,6 +28,9 @@ const ForgotPassword: React.FC = () => {
     const { addToast } = useToast();
 
     const handleSubmit = useCallback(async (data: ForgotPasswordFormData) => {
+        if (loading) {
+            return;
+        }
         try {
             setLoading(true);
             formRef.current?.setErrors({});
@@ -71,7 +74,7 @@ const ForgotPassword: React.FC = () => {
         } finally {
             setLoading(false);
         }
-    }, [addToast]);
+    }, [addToast, loading]);
 
     return (
         <Container>
