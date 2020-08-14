@@ -1,19 +1,22 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
-
 export const Container = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
 
   > header {
+    width: 100%;
     height: 144px;
     background: #28262e;
 
     div {
-      width: 100%;
       max-width: 1120px;
+      height: 100%;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
 
       svg {
         color: #999591;
@@ -32,8 +35,6 @@ export const Content = styled.div`
   margin: -176px auto 0;
 
   /* place-content: center; */
-
-  width: 100%;
 
   form {
     margin: 80px 0;
